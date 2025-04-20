@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class ALInsertionSort
 {
@@ -10,24 +11,35 @@ public class ALInsertionSort
     	boolean inserted=false;
 
 		//Add the first number to the array list
-
+		sorted.add(myNumbers[0]);
 		//Loop once for all of the remaining numbers in the unsorted list
-
+		for(int i=1; i<myNumbers.length-1; i++){
+			inserted = false;
 			//Check with each of the numbers in the sorted list
-
+			for(int k=0; k<sorted.size(); k++){
 				//If this number is less than one in the sorted list,
 				//insert it there
+				if(myNumbers[i]<sorted.get(k)){
+					sorted.add(k, myNumbers[i]);
+					k=sorted.size();
+					inserted = true;
+				}
+			}
+				//If it was not inserted, stick it on the end.
+				if(!inserted){
+					sorted.add(myNumbers[i]);
+				}
+		}//End Loop for unsorted list
 
-			//If it was not inserted, stick it on the end.
 
-
-		//End Loop for unsorted list
-
-		System.out.println(sorted);
 
 		//Move the data back to the array
-
+		for(int i=0; i<sorted.size();i++){
+			myNumbers[i]=sorted.get(i);
+		}
 		//Print the contents of the array
+		for(int i=0;i<myNumbers.length; i++)
+			System.out.print(myNumbers[i] + " ");
 
     }
 
